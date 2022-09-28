@@ -5,4 +5,5 @@ branches:
 projects:
   VennV:
     path: ""
+    lint: false
 ...
