@@ -1,31 +1,4 @@
 ---
-########################################################################################################
-#
-#                                     What is VennV anticheat?
-#     VennV is an advanced packet-based minecraft-bedrock anticheat, made to perform at any player count,
-#           on any server version between 1.12.x and 1.19.x, without any performance overhead.
-#       VennV includes an extremely useful API that allows you to send packets to the server running
-#           VennV and get the results that have been checked by VennV. However they must be valid
-#                      packages and are not intended to intentionally sabotage VennV.
-#
-#                      VennV uses a method known as "offset", which is understood as 
-#                         when VennV flags a player a sufficient number of flags.
-#                             While playing legitimate players can be flagged,
-#                               however flagging it is just flagging for 
-#                                   VennV to achieve a better goal, 
-#                         however it will not affect all legitimate players.
-#
-#    Useful Links:
-#       Website: https://hachkingtohach1.github.io/
-#       Discord: https://discord.gg/HseJJckg
-#       Wiki: https://github.com/VennDev/VennV/wiki
-#       Issue Tracker: https://github.com/VennDev/VennV/issues
-#
-#
-#    <<<    Anyway, i thank you for trusting and using VennV <3    >>>
-#
-########################################################################################################
-
 # This is API Software PocketMine-PMMP
 # Resource here: https://github.com/pmmp/PocketMine-MP
 # You can use one resource-code fork from PocketMine-PMMP, but it must be API 3 or higher
