@@ -1,0 +1,683 @@
+---
+########################################################################################################
+#
+#                                     What is VennV anticheat?
+#     VennV is an advanced packet-based minecraft-bedrock anticheat, made to perform at any player count,
+#           on any server version between 1.12.x and 1.19.x, without any performance overhead.
+#       VennV includes an extremely useful API that allows you to send packets to the server running
+#           VennV and get the results that have been checked by VennV. However they must be valid
+#                      packages and are not intended to intentionally sabotage VennV.
+#
+#                      VennV uses a method known as "offset", which is understood as 
+#                         when VennV flags a player a sufficient number of flags.
+#                             While playing legitimate players can be flagged,
+#                               however flagging it is just flagging for 
+#                                   VennV to achieve a better goal, 
+#                         however it will not affect all legitimate players.
+#
+#    Useful Links:
+#       Website: https://hachkingtohach1.github.io/
+#       Discord: https://discord.gg/HseJJckg
+#       Wiki: https://github.com/VennDev/VennV/wiki
+#       Issue Tracker: https://github.com/VennDev/VennV/issues
+#
+#
+#    <<<    Anyway, i thank you for trusting and using VennV <3    >>>
+#
+########################################################################################################
+
+# This is API Software PocketMine-PMMP
+# Resource here: https://github.com/pmmp/PocketMine-MP
+# You can use one resource-code fork from PocketMine-PMMP, but it must be API 3 or higher
+# Support from API 3 to 5
+pocketmine_api: 4
+
+# name or call is prefix when plugin need
+name: '§l§7VennV§r'
+
+# Custom commands
+commands:
+    # Permision for command
+    permission: "vennv.command"
+
+    name_command: 
+      - "vennv"
+      - "vennvac"
+      
+    subcommands:
+      reload: 
+        command: "reload"
+        permission: "vennv.command.reload"
+        description: " - To reload config plugin"
+      menu: 
+        command: "menu"
+        permission: "vennv.command.menu"
+        description: " - To open menu settings VennV"
+
+# Alert when player failed one check
+alerts:
+    # Should enable alerts for player or staff when one player hacking? (default: false)
+    enable: false
+
+    # When need alert, plugin need check permission player to alert (default: false)
+    enable_permission: false
+
+    # Permission for alert
+    permision_alert: 'vennv.alert'
+
+    # Message for alert
+    message: '{name} §8> §f{player} §7failed §f{cheat} §8VL[§7{vl}§8]'
+
+    # Recent logs
+    # Enabling this feature allows anticheat to resend a file containing the checked daily list.
+    logs: 
+      enable: true
+      recent: '{time} | {player} failed {cheat} VL[{vl}] | {parameter}'
+
+# Kick when reach max violation
+kick:
+    # Message when player has been kicked
+    message: '§l§7VennV§r §8> §f Unfair Advantage'
+
+    # Should we broadcast in chat when a player gets kicked by VennV?
+    broadcast: true
+
+    # Commands
+    commands:
+      - "kick {player} {reason}"
+
+# Ban when reach max violation
+ban:
+    # Message when player has been banned
+    message: '§l§7VennV§r §8> §f !!!End here!!!'
+
+    # Should we broadcast in chat when a player gets banned by VennV?
+    broadcast: true
+
+    # Commands
+    commands:
+      - "ban {player} {reason}"
+
+# Webhook
+webhook:
+    # website: https://discord.com/
+    discord:
+      name_bot: "VennV Anticheat"
+      avatar_url: "https://raw.githubusercontent.com/hachkingtohach1/Image/main/icon2.png"
+      logs:
+        enable: false
+        url: ''
+      ban:
+        enable: false
+        url: ''
+      kick:
+        enable: false
+        url: ''
+
+# TPS Protection Settings
+tps_protection:
+  # If the Server's TPS reach or go below this value VennV will stop checking players
+  min_tps: 17.0
+
+  # If the server does not respond for this amount of Milliseconds, VennV will stop checking players
+  lag_threshold: 1000
+
+  # How long should we wait for the server to recover once a lag spike occurs? (In milliseconds)
+  recover_millis: 5000
+
+# Check Settings
+check_settings:
+  # How often should VennV clear the player violations? (Minutes)
+  violation_reset_interval: 5
+
+  # Max CPS
+  max_cps: 15
+
+# DataBase
+# Do not touch unless you know what you're doing
+database:
+    # MySQL database: https://www.apachefriends.org/
+    mysql:
+      enable: false
+      host: localhost
+      push:
+        seconds: 10
+      port: 3306
+      pool: 4
+      database_name: VennV
+      auth:
+        username: VennV
+        password: ''
+
+    # SQLite database: https://www.sqlite.org/index.html
+    sqlite:
+      enable: false
+      host: localhost
+      push:
+        seconds: 10
+      port: 3306
+      pool: 4
+      database_name: VennV
+      auth:
+        username: VennV
+        password: ''
+
+# All checks
+# Some checks will have false flags, 
+# but they are created for VennV inspection purposes.
+checks:
+    aim:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+      G: 
+        kick: true
+        ban: false
+        cancel: true
+      H: 
+        kick: true
+        ban: false
+        cancel: true
+      I: 
+        kick: true
+        ban: false
+        cancel: true
+      J: 
+        kick: true
+        ban: false
+        cancel: true
+      K: 
+        kick: true
+        ban: false
+        cancel: true
+      L: 
+        kick: true
+        ban: false
+        cancel: true
+
+    autoclick:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B:
+        kick: true
+        ban: false
+        cancel: true
+      C:
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+
+    badpackets:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+      G: 
+        kick: true
+        ban: false
+        cancel: true
+
+      # If you want server use Nuker for player, here this!
+      H: 
+        kick: true
+        ban: false
+        cancel: true
+
+      I: 
+        kick: true
+        ban: false
+        cancel: true
+
+    # This can detect things like Jetpack,.. 
+    # if you don't give the player permission.
+    fly:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      2D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+      G: 
+        kick: true
+        ban: false
+        cancel: true
+      2G: 
+        kick: true
+        ban: false
+        cancel: true
+      H: 
+        kick: true
+        ban: false
+        cancel: true
+      2H: 
+        kick: true
+        ban: false
+        cancel: true
+      I: 
+        kick: true
+        ban: false
+        cancel: true
+      J: 
+        kick: true
+        ban: false
+        cancel: true
+      2I: 
+        kick: true
+        ban: false
+        cancel: true
+      2I2: 
+        kick: true
+        ban: false
+        cancel: true
+      K: 
+        kick: true
+        ban: false
+        cancel: true
+      2K: 
+        kick: true
+        ban: false
+        cancel: true
+      2K2: 
+        kick: true
+        ban: false
+        cancel: true
+      L: 
+        kick: true
+        ban: false
+        cancel: true
+
+    hitbox:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+
+    interact:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+
+    inventory:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true 
+
+    # This can detect things like Jetpack,.. 
+    # if you don't give the player permission.
+    jesus:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+
+    killaura:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+      G: 
+        kick: true
+        ban: false
+        cancel: true
+      H: 
+        kick: true
+        ban: false
+        cancel: true
+      I: 
+        kick: true
+        ban: false
+        cancel: true
+      J: 
+        kick: true
+        ban: false
+        cancel: true
+      K: 
+        kick: true
+        ban: false
+        cancel: true
+      L: 
+        kick: true
+        ban: false
+        cancel: true
+
+    # This can detect things like Jetpack,.. 
+    # if you don't give the player permission.
+    motion:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+
+    nofall:
+
+      # Should we enable this module?
+      enable: true
+
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+
+    reach:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+
+    scaffold:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B:
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+
+    speed:
+
+      # Should we enable this module?
+      enable: true
+
+      # Types check
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true 
+      E: 
+        kick: true
+        ban: false
+        cancel: true 
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+      G: 
+        kick: true
+        ban: false
+        cancel: true
+      H: 
+        kick: true
+        ban: false
+        cancel: true
+
+    timer:
+
+      # Should we enable this module?
+      enable: true
+
+      A:
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+
+    velocity:
+
+      # Should we enable this module?
+      enable: true
+
+      # Types check
+      A: 
+        kick: true
+        ban: false
+        cancel: true
+      B: 
+        kick: true
+        ban: false
+        cancel: true
+      C: 
+        kick: true
+        ban: false
+        cancel: true
+      D: 
+        kick: true
+        ban: false
+        cancel: true
+      E: 
+        kick: true
+        ban: false
+        cancel: true
+      F: 
+        kick: true
+        ban: false
+        cancel: true
+      G: 
+        kick: true
+        ban: false
+        cancel: true
+      H: 
+        kick: true
+        ban: false
+        cancel: true
+...
