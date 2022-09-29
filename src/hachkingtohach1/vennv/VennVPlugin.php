@@ -1,7 +1,5 @@
 <?php
 
-//http://ip-api.com/json/116.110.43.122?fields=175647
-
 namespace hachkingtohach1\vennv;
 
 use hachkingtohach1\launcher\VennVLaunch;
